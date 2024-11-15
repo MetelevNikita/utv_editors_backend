@@ -7,9 +7,10 @@ const path = require('path');
 
 // module
 
-const filmingRouter= require('./Router/filmingRouter');
+const filmingRouter = require('./Router/filmingRouter');
 const userRouter = require('./Router/usersRouter');
 const loginRouter = require('./Router/loginRouter');
+const politicRouter = require('./Router/politicRouter');
 
 //
 
@@ -27,6 +28,7 @@ app.use(express.static('public'));
 app.use('/api/v1', filmingRouter);
 app.use('/api/v1', userRouter);
 app.use('/api/v1', loginRouter);
+app.use('/api/v1', politicRouter);
 
 
 //
