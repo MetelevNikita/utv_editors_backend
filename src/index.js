@@ -14,6 +14,8 @@ const politicRouter = require('./Router/politicRouter');
 
 //
 
+console.log(new Date().toLocaleDateString())
+
 
 const app = express();
 

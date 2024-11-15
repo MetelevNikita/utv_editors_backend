@@ -4,12 +4,20 @@ const fs = require('fs');
 
 
 
-const pathToFile = path.resolve(__dirname, '..', 'logs/log.txt');
+const pathToFolder= path.resolve(__dirname, '..', 'logs');
 
 const createMessageLog = (message) => {
   const log = `\n[${new Date().toISOString()}] ${message}\n`;
-  const appendFile = fs.appendFileSync(pathToFile, log);
 
+
+  const writeFile = fs.writeFileSync(pathToFolder + `/log [${new Date().toLocaleDateString()}].txt`, '', {encoding: 'utf-8'})
+
+
+  if(!fs.existsSync(path.resolve(__dirname, '..', `logs//log [${new Date().toLocaleDateString()}].txt`))) {
+    const writeFile = fs.writeFileSync(pathToFolder + `/log [${new Date().toLocaleDateString()}].txt`, '', {encoding: 'utf-8'})
+  }
+
+  const appendFile = fs.appendFileSync(path.resolve(__dirname, '..', `logs/log [${new Date().toLocaleDateString()}].txt`), log);
   return appendFile;
 }
 

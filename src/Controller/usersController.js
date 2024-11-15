@@ -67,6 +67,9 @@ const postUser = async (req, res) => {
       return
     }
 
+
+    
+
     res.status(200).send(createUser)
 
   } catch (error) {
