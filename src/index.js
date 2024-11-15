@@ -5,6 +5,14 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const path = require('path');
 
+// module
+
+const filmingRouter= require('./Router/filmingRouter');
+const userRouter = require('./Router/usersRouter');
+const loginRouter = require('./Router/loginRouter');
+
+//
+
 
 const app = express();
 
@@ -13,6 +21,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+// router use
+
+app.use('/api/v1', filmingRouter);
+app.use('/api/v1', userRouter);
+app.use('/api/v1', loginRouter);
 
 
 //
@@ -33,6 +47,18 @@ app.get('/', (req, res) => {
     res.status(500).json({ message: error.message })
   }
 
+})
+
+
+
+app.get('./*', (req, res) => {
+  try {
+
+    res.status(200).sendFile(publicFolder + '/html/index.html');
+
+  } catch (error) {
+    res.status(5000).json({ message: error.message })
+  }
 })
 
 
