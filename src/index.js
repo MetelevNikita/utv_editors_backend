@@ -35,9 +35,9 @@ app.use('/api/v1', politicRouter);
 
 //
 
-
 const publicFolder = path.resolve(__dirname, '../public');
-console.log(publicFolder);
+
+//
 
 
 

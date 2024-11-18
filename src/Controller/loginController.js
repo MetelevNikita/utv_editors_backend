@@ -30,7 +30,6 @@ const login = (req, res) => {
 
 
     getUser.then(user => {
-      console.log(user.password)
 
       const isMatch = bcrypt.compareSync(password, user.password)
       console.log(isMatch)
